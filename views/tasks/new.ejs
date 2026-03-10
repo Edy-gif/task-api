@@ -1,0 +1,28 @@
+<%- include('../header') %>
+
+<h1>Create New Task</h1>
+
+<% if (error.length > 0) { %>
+    <div class="error"><%= error %></div>
+<% } %>
+
+<div class="form-container">
+    <form action="/tasks" method="POST">
+        <label>Title</label>
+        <input type="text" name="title" placeholder="Enter task title">
+
+        <label>Description</label>
+        <textarea name="description" placeholder="Enter task description"></textarea>
+
+        <label>Status</label>
+        <select name="status">
+            <option value="pending">Pending</option>
+            <option value="completed">Completed</option>
+        </select>
+
+        <button type="submit" class="btn btn-success">Create Task</button>
+        <a href="/tasks" class="btn btn-primary">Cancel</a>
+    </form>
+</div>
+
+<%- include('../footer') %>

@@ -1,0 +1,21 @@
+<%- include('header') %>
+
+<div class="friday">
+    <p>Today is: <strong><%= date %></strong></p>
+    <h1><%= dayOfWeek %></h1>
+
+    <% if (isFriday) { %>
+        <div class="friday-special">
+            <h2>🎉 IT'S FRIDAY! 🎉</h2>
+            <p>Time to celebrate the weekend!</p>
+            <p>🎊 🥳 🎈 🎸 🕺 💃 🎊</p>
+        </div>
+    <% } else { %>
+        <p>It's not Friday yet. Keep going! 💪</p>
+    <% } %>
+</div>
+
+<br>
+<p>Test a specific date: <a href="/friday?date=2026-03-13">/friday?date=2026-03-13</a></p>
+
+<%- include('footer') %>

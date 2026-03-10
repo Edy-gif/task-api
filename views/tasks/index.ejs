@@ -1,0 +1,38 @@
+<%- include('../header') %>
+
+<h1>All Tasks</h1>
+
+<% if (success.length > 0) { %>
+    <div class="success"><%= success %></div>
+<% } %>
+<% if (error.length > 0) { %>
+    <div class="error"><%= error %></div>
+<% } %>
+
+<a href="/tasks/new" class="btn btn-success" style="margin-bottom: 20px; display: inline-block;">+ New Task</a>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Status</th>
+        <th>Actions</th>
+    </tr>
+    <% tasks.forEach(task => { %>
+    <tr>
+        <td><%= task.id %></td>
+        <td><%= task.title %></td>
+        <td><%= task.description %></td>
+        <td class="status-<%= task.status %>"><%= task.status %></td>
+        <td>
+            <a href="/tasks/<%= task.id %>/edit" class="btn btn-primary">Edit</a>
+            <form action="/tasks/<%= task.id %>/delete" method="POST" style="display:inline">
+                <button type="submit" class="btn btn-danger">Delete</button>
+            </form>
+        </td>
+    </tr>
+    <% }) %>
+</table>
+
+<%- include('../footer') %>
